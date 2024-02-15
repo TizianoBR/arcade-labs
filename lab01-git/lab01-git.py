@@ -2,6 +2,46 @@ import math
 import random
 import arcade
 
+def draw_minecart(x, y, size):
+    arcade.draw_circle_filled(size * 617.5 + x, size * 145 + y, size * 12, arcade.color.YELLOW)
+    arcade.draw_lrtb_rectangle_filled(size * 450 + x, size * 600 + x, size * 180 + y, size * 100 + y,arcade.color.BROWN_NOSE)
+    arcade.draw_triangle_filled(size * 450 + x, size * 181 + y, size * 450 + x, size * 100 + y, size * 420 + x,size * 181 + y, arcade.color.BROWN_NOSE)
+    arcade.draw_triangle_filled(size * 600 + x, size * 181 + y, size * 600 + x, size * 100 + y, size * 630 + x,size * 181 + y, arcade.color.BROWN_NOSE)
+    arcade.draw_lrtb_rectangle_filled(size * 410 + x, size * 640 + x, size * 190 + y, size * 170 + y, (110, 110, 110))
+    arcade.draw_circle_filled(size * 475 + x, size * 100 + y, size * 30, (110, 110, 110))
+    arcade.draw_circle_outline(size * 475 + x, size * 100 + y, size * 22.5, arcade.color.BROWN_NOSE, size * 15)
+    arcade.draw_circle_filled(size * 575 + x, size * 100 + y, size * 30, (110, 110, 110))
+    arcade.draw_circle_outline(size * 575 + x, size * 100 + y, size * 22.5, arcade.color.BROWN_NOSE, size * 15)
+
+    arcade.draw_lrtb_rectangle_filled(size * 225 + x, size * 325 + x, size * 550 + y, size * 125 + y, (75, 75, 75))
+
+    arcade.draw_triangle_filled(size * 435 + x, size * 0 + y, size * 295 + x, size * 0 + y, size * 365 + x,
+                                size * 275 + y, (70, 70, 70))
+    arcade.draw_triangle_filled(size * 335 + x, size * 0 + y, size * 215 + x, size * 0 + y, size * 275 + x,
+                                size * 210 + y, (70, 70, 70))
+
+def draw_slime(x,y,w,h,verde,oscuro,espada):
+
+    arcade.draw_ellipse_filled(w*270+x, h*270+y, 20*w, 70*h, arcade.color.BLACK, 40)
+    arcade.draw_rectangle_filled(w*300+x, h*245+y, 20*w, 70*h, arcade.color.BLACK, -50)
+
+    arcade.draw_rectangle_filled(w*230+x, h*300+y, 30*w, 100*h, espada, 310)
+    arcade.draw_triangle_filled(w*205+x, h*341+y, w*186+x, h*316+y, w*165+x, h*355+y, espada)
+
+    arcade.draw_rectangle_filled(w*230+x, h*300+y, 1*w, 100*h, arcade.color.SPANISH_GRAY, -50)
+
+    arcade.draw_rectangle_filled(w*400+x, h*240+y, 190*w, 80*h, verde)
+    arcade.draw_rectangle_filled(w*440+x, h*240+y, 105*w, 80*h, oscuro)
+
+    arcade.draw_ellipse_filled(w*312+x, h*262+y, 40*w, 129*h, verde)
+    arcade.draw_ellipse_filled(w*488+x, h*262+y, 40*w, 129*h, oscuro)
+    arcade.draw_rectangle_filled(w*400+x, h*200+y, 190*w, 10*h, oscuro)
+
+    arcade.draw_ellipse_filled(w*400+x, h*300+y, 200*w, 189*h, verde)  # circulo principal
+    arcade.draw_ellipse_filled(w*340+x, h*300+y, 20*w, 70*h, arcade.color.BLACK)  # ojos
+    arcade.draw_ellipse_filled(w*420+x, h*300+y, 20*w, 70*h, arcade.color.BLACK)
+
+
 
 def draw_image(x, y, size):
     arcade.draw_lrtb_rectangle_filled(size*0+x, size*800+x, size*150+y, size*0+y, arcade.color.DAVY_GREY)
@@ -56,22 +96,6 @@ def draw_image(x, y, size):
     arcade.draw_line(size*0+x, size*70+y, size*800+x, size*70+y, (100, 100, 100), size*7.5)
     arcade.draw_line(size*0+x, size*110+y, size*800+x, size*110+y, (100, 100, 100), size*7.5)
 
-    arcade.draw_circle_filled(size*617.5+x, size*145+y, size*12, arcade.color.YELLOW)
-    arcade.draw_lrtb_rectangle_filled(size*450+x, size*600+x, size*180+y, size*100+y, arcade.color.BROWN_NOSE)
-    arcade.draw_triangle_filled(size*450+x, size*181+y, size*450+x, size*100+y, size*420+x, size*181+y, arcade.color.BROWN_NOSE)
-    arcade.draw_triangle_filled(size*600+x, size*181+y, size*600+x, size*100+y, size*630+x, size*181+y, arcade.color.BROWN_NOSE)
-    arcade.draw_lrtb_rectangle_filled(size*410+x, size*640+x, size*190+y, size*170+y, (110, 110, 110))
-    arcade.draw_circle_filled(size*475+x, size*100+y, size*30, (110, 110, 110))
-    arcade.draw_circle_outline(size*475+x, size*100+y, size*22.5, arcade.color.BROWN_NOSE, size*15)
-    arcade.draw_circle_filled(size*575+x, size*100+y, size*30, (110, 110, 110))
-    arcade.draw_circle_outline(size*575+x, size*100+y, size*22.5, arcade.color.BROWN_NOSE, size*15)
-
-    arcade.draw_lrtb_rectangle_filled(size*225+x, size*325+x, size*550+y, size*125+y, (75, 75, 75))
-
-    arcade.draw_triangle_filled(size*435+x, size*0+y, size*295+x, size*0+y, size*365+x, size*275+y, (70, 70, 70))
-    arcade.draw_triangle_filled(size*335+x, size*0+y, size*215+x, size*0+y, size*275+x, size*210+y, (70, 70, 70))
-
-
 arcade.open_window(1500, 700, "My drawing")
 arcade.set_background_color(arcade.color.BATTLESHIP_GREY)
 arcade.start_render()
@@ -83,6 +107,30 @@ random.seed()
 #    draw_image(random.randint(0, 1500-round(800*r)), random.randint(0, 700-round(600*r)), r)
 draw_image(-100, 0, 1.166)
 draw_image(800*1.166-100, 0, 1.166)
+
+r = random.randint(50, 255)
+g = random.randint(50, 255)
+b = random.randint(50, 255)
+color = (r, g, b)
+colorShadow = (r - 80, g - 80, b - 60)
+draw_slime(310, 110, 0.5, 0.5, color, colorShadow, (75, 75, 75))
+
+r = random.randint(50, 255)
+g = random.randint(50, 255)
+b = random.randint(50, 255)
+color = (r, g, b)
+colorShadow = (r - 80, g - 80, b - 60)
+draw_slime(310 + 800*1.166, 110, 0.5, 0.5, color, colorShadow, (75, 75, 75))
+
+draw_minecart(-100, 0, 1.166)
+draw_minecart(800*1.166-100, 0, 1.166)
+
+r = random.randint(50, 255)
+g = random.randint(50, 255)
+b = random.randint(50, 255)
+color = (r, g, b)
+colorShadow = (r - 80, g - 80, b - 60)
+draw_slime(700, 20, 0.5, 0.5, color, colorShadow, (75, 75, 75))
 
 arcade.finish_render()
 arcade.run()
